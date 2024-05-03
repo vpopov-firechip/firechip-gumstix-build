@@ -8,6 +8,7 @@
   <remote name="oe" fetch="git://git.openembedded.org" />
   <remote name="gumstix" fetch="git://github.com/gumstix" />
   <remote name="clang" fetch="git://github.com/kraj" />
+  <remote name="firechip" fetch="git://github.com/vpopov-firechip" />
 
   <project name="poky" revision="refs/heads/warrior" remote="yocto" />
   <project name="meta-ti" revision="refs/heads/zeus"  remote="yocto" path="poky/meta-ti" />
@@ -18,5 +19,6 @@
   <project name="meta-java" revision="refs/heads/warrior"  remote="yocto" path="poky/meta-java" />
   <project name="meta-clang" revision="refs/heads/warrior"  remote="clang" path="poky/meta-clang" />
   <project name="meta-python2" revision="refs/heads/warrior"  remote="oe" path="poky/meta-python2" />
+  <project name="meta-gumstix-firechip" revision="refs/heads/main" remote="firechip" path="poky/meta-gumstix-firechip" />
 
 </manifest>
