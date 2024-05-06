@@ -1,15 +1,25 @@
 # firechip-gumstix-build
 
-To clone and check-out repositories:
+## Clone and check-out repositories:
+
+cd ~
+
+mkdir gumstix
 
 repo init -u git://github.com/vpopov-firechip/firechip-gumstix-git -b main
 
-To set up environment:
+## Build and run docker:
 
-export TEMPLATECONF=/home/user/poky/meta-gumstix-firechip/conf
+docker build --build-arg "host_uid=$(id -u)" --build-arg "host_gid=$(id -g)" --tag ubuntu_gumstix_image ./firechip-gumstix-build/
 
-. /home/user/poky/oe-init-build-env build_gumstix
+docker run -it --rm -v $PWD:/Work ubuntu_gumstix_image
 
-To build:
+## Set up environment:
+
+export TEMPLATECONF=/Work/poky/meta-gumstix-firechip/conf
+
+. /Work/poky/oe-init-build-env build
+
+## Run build:
 
 bitbake gumstix-console-firechip-image
