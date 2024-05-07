@@ -1,8 +1,5 @@
 #! /bin/sh
 #
-# (c) Copyright 2014 Gumstix, Inc.
-# Licensed under terms of GPLv2
-#
 # Based on mk2PartSDCard.sh from Texas Instrument
 # http://processors.wiki.ti.com/index.php/How_to_Make_3_Partition_SD_Card
 #
@@ -10,12 +7,18 @@
 
 DRIVE=$1
 
-#dd if=/dev/zero of=$DRIVE bs=1024 count=1024
+# Destroy partition table
+
+dd if=/dev/zero of=$DRIVE bs=1024 count=1024
+
+# Make partitions (64 MiB and the rest of available space) 
 
 sfdisk --force $DRIVE << EOF
 128,130944,0x0C,*
 131072,,,-
 EOF
+
+# Create file systems
 
 if [ -b ${1}1 ]; then
 	mkfs.vfat -F 32 -n "boot" ${DRIVE}1 
