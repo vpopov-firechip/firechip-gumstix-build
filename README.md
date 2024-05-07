@@ -28,10 +28,9 @@ Build
     $ sudo mount -t vfat /dev/sdb1 /media/boot
     $ sudo mount -t ext4 /dev/sdb2 /media/rootfs
     $ cd ./tmp/deploy/images/overo/
-    $ sudo cp MLO /media/boot/
-    $ sudo cp u-boot.img /media/boot/
-    $ gumstix-console-firechip-image-overo.tar.bz2
-    $ sudo tar -xjvf gumstix-console-firechip-image-overo.tar.bz2 -C /media/rootfs
+    $ cp MLO /media/boot/
+    $ cp u-boot.img /media/boot/
+    $ sudo tar -xjvf gumstix-console-firechip-image-overo.tar.bz2 -C /media/rootfs/
     $ sync
     $ sudo umount /media/boot
     $ sudo umount /media/rootfs
